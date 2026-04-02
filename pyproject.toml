@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "antikythera"
+version = "0.1.0"
+description = "A Python-first local math MCP server with an extensible backend architecture."
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+keywords = ["mcp", "math", "sympy", "calculator", "ai-agents", "tooling"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: Scientific/Engineering :: Mathematics",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+  "mcp>=1.26.0",
+  "numpy>=2.4.0",
+  "sympy>=1.14.0",
+  "mpmath>=1.3.0",
+  "pint>=0.24.4",
+]
+
+[project.optional-dependencies]
+scientific = [
+  "scipy>=1.16.0",
+]
+data = [
+  "duckdb>=1.4.0",
+]
+
+[project.scripts]
+antikythera = "antikythera.__main__:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
